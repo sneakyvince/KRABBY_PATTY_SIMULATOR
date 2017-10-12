@@ -7,13 +7,12 @@ catch(e) {
   $('.no-browser-support').show();
   $('.app').hide();
 }
-
+var wordArray = ["broodje", "kaas", "hamburger"]
 
 var noteTextarea = $('#note-textarea');
 var instructions = $('#recording-instructions');
 var notesList = $('ul#notes');
 
-var wordArray = ["broodje", "kaas", "hamburger"]
 var noteContent = '';
 
 // Get all notes from previous sessions and display them.
@@ -44,9 +43,10 @@ function wordRecognition (noteContent) {
       }  
     }
   }
-
+  
 // This block is called every time the Speech APi captures a line. 
 recognition.onresult = function(event) {
+
 
   // event is a SpeechRecognitionEvent object.
   // It holds all the lines we have captured so far. 
@@ -65,6 +65,8 @@ recognition.onresult = function(event) {
     noteContent += transcript;
     noteTextarea.val(noteContent);
   }
+
+  
 };
 
 recognition.onstart = function() { 
@@ -73,6 +75,7 @@ recognition.onstart = function() {
 
 recognition.onspeechend = function() {
   instructions.text('You were quiet for a while so voice recognition turned itself off.');
+  
 }
 
 recognition.onerror = function(event) {
@@ -80,7 +83,6 @@ recognition.onerror = function(event) {
     instructions.text('No speech was detected. Try again.');  
   };
 }
-
 
 
 /*-----------------------------
@@ -96,9 +98,14 @@ $('#start-record-btn').on('click', function(e) {
 
 
 $('#pause-record-btn').on('click', function(e) {
-  recognition.stop();
-  instructions.text('Voice recognition paused.');
+  //console.log(noteContent + "blabla2");
   wordRecognition(noteContent);
+  //console.log("test");
+  //console.log(wordArray.length);
+  recognition.stop();
+  
+  
+  instructions.text('Voice recognition paused.');
 });
 
 // Sync the text inside the text area with the noteContent variable.
@@ -145,8 +152,6 @@ notesList.on('click', function(e) {
   }
 });
 
-
-
 /*-----------------------------
       Speech Synthesis 
 ------------------------------*/
@@ -155,12 +160,13 @@ function readOutLoud(message) {
 	var speech = new SpeechSynthesisUtterance();
 
   // Set the text and voice attributes.
-	speech.text = message;
+  speech.text = message;
+  console.log(message); //////////
 	speech.volume = 1;
 	speech.rate = 1;
 	speech.pitch = 1;
   
-	window.speechSynthesis.speak(speech);
+  window.speechSynthesis.speak(speech);
 }
 
 
