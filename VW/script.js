@@ -1,3 +1,5 @@
+$('<audio id="chatAudio"> <source src="audio/Ping.mp3" type="audio/mpeg"></audio>').appendTo('body');
+
 try {
   var SpeechRecognition = window.SpeechRecognition || window.webkitSpeechRecognition;
   var recognition = new SpeechRecognition();
@@ -63,28 +65,43 @@ $('#start-record-btn').on('click', function (e) {
 
     if (transcript.indexOf(krabbyArray[0]) >= 0) {
       document.getElementById("bread").style.visibility = "visible";
+      $('#chatAudio')[0].play();
+      $('#bread').addClass('magictime slideLeftReturn');
     }
 
     if (transcript.indexOf(krabbyArray[1]) >= 0) {
       document.getElementById("sesame").style.visibility = "visible";
+      $('#chatAudio')[0].play();
+      $('#sesame').addClass('magictime vanishIn');
     }
 
     if (transcript.indexOf(krabbyArray[2]) >= 0) {
       document.getElementById("meat").style.visibility = "visible";
+      $('#chatAudio')[0].play();
+      $('#meat').addClass('magictime slideLeftReturn');
     }
 
     if (transcript.indexOf(krabbyArray[3]) >= 0) {
       document.getElementById("lettuce").style.visibility = "visible";
+      $('#chatAudio')[0].play();
+      $('#lettuce').addClass('magictime slideLeftReturn');
     }
 
     if (transcript.indexOf(krabbyArray[4]) >= 0) {
       document.getElementById("cheese").style.visibility = "visible";
+
+      setTimeout(function(){
+        document.getElementById("melting-cheese").style.visibility = "visible";
+      }, 2000);
+      
+      $('#chatAudio')[0].play();
+      $('#cheese').addClass('magictime slideLeftReturn');
     }
 
     if (transcript.indexOf(krabbyArray[5]) >= 0) {
       document.getElementById("onion").style.visibility = "visible";
-
-      
+      $('#chatAudio')[0].play();
+      $('#onion').addClass('magictime slideLeftReturn');
     }
 
   }

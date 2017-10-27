@@ -76,7 +76,7 @@ body {
 }
 
 #melting-cheese {
-    animation: melt 3s infinite;
+    animation: melt 3s infinite!important;
     width: 5%;
     height: 10%;
     background-color: #e6af00;
@@ -137,3 +137,21 @@ body {
 #onion {
     visibility: hidden;
 }
+
+
+/* Animations */
+
+.slideLeftReturn {
+    animation-name: slideLeftReturn;
+  }
+  @keyframes slideLeftReturn {
+    0% {
+      transform-origin: 0 0;
+      transform: translateX(-100%);
+    }
+  
+    100% {
+      transform-origin: 0 0;
+      transform: translateX(0%);
+    }
+  }
