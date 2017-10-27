@@ -1,12 +1,28 @@
+@font-face {
+    font-family: Krabby;
+    src: url(../fonts/Krabby_Patty.ttf);
+}
+
+* {
+    font-family: Krabby!important;
+}
+
+h1 {
+    color: hotpink;
+}
 ul {
     list-style: none;
     padding: 0;
 }
 
 p {
-    color: #444;
+    color: yellow
 }
 
+button {
+    background-color: greenyellow!important;
+    color: blue;
+}
 button:focus {
     outline: 0;
 }
