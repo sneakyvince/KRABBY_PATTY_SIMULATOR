@@ -43,7 +43,7 @@ body {
 
 #sesame {
     width: 100%;
-    height: 100%;
+    height: 20%;
     background-image: radial-gradient(#f3d9b1 5%, rgba(0, 0, 0, 0) 6%), radial-gradient(#f3d9b1 5%, rgba(0, 0, 0, 0) 6%);
     background-size: 40px 30px;
     background-position: 10px 0px, 30px 15px;

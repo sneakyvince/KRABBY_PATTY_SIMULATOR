@@ -105,7 +105,7 @@ $('#start-record-btn').on('click', function (e) {
     }
 
   }
-
+  
   recognition.start();
 });
 
