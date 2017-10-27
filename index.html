@@ -1,52 +1,54 @@
 <!DOCTYPE html>
-    <head>
-        <meta charset="utf-8">
-        <meta http-equiv="X-UA-Compatible" content="IE=edge">
-        <title>Voice Controlled Notes App</title>
-        <meta name="description" content="">
-        <meta name="viewport" content="width=device-width, initial-scale=1">
-        
-        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/shoelace-css/1.0.0-beta16/shoelace.css">
-        <link rel="stylesheet" href="styles.css">
 
-    </head>
-    <body>
-        <div class="container">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Voice Controlled Notes App</title>
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="icon" href="img/57e3ee89def6f157525bcab9.png" type="image/gif" sizes="16x16">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/shoelace-css/1.0.0-beta16/shoelace.css">
+    <link rel="stylesheet" href="css/styles.css">
+    <link rel="stylesheet" href="css/burger.css">
+    <link rel="stylesheet" href="css/magic.min.css">
+</head>
 
-            <h1>Voice Controlled Notes App</h1>
-            <p class="page-description">A tiny app that allows you to take notes by recording your voice</p>
-            <p><a class="tz-link" href="https://tutorialzine.com/2017/08/converting-from-speech-to-text-with-javascript">Read the full article on Tutorialzine »</a></p>
+<body>
 
-            <h3 class="no-browser-support">Sorry, Your Browser Doesn't Support the Web Speech API. Try Opening This Demo In Google Chrome.</h3>
+    <div class="container">
 
-            <div class="app"> 
-                <h3>Add New Note</h3>
-                <div class="input-single">
-                    <textarea id="note-textarea" placeholder="Create a new note by typing or using voice recognition." rows="6"></textarea>
-                </div>         
-                <button id="start-record-btn" title="Start Recording">Start Recognition</button>
-                <button id="pause-record-btn" title="Pause Recording">Pause Recognition</button>
-                <button id="save-note-btn" title="Save Note">Save Note</button>   
-                <p id="recording-instructions">Press the <strong>Start Recognition</strong> button and allow access.</p>
-                
-                <h3>My Notes</h3>
-                <ul id="notes">
-                    <li>
-                        <p class="no-notes">You don't have any notes.</p>
-                    </li>
-                </ul>
+        <h1>Krabby Patty Simulator</h1>
+        <p class="page-description">Make a Krabby Patty using HTML5 Speech Recognition API</p>
+        <h3 class="no-browser-support">Sorry, Your Browser Doesn't Support the Web Speech API. Try Opening This Demo In Google Chrome.</h3>
 
-            </div>
+        <div class="app">
+            <button id="start-record-btn" title="Start Recording">Start Patty</button>
+            <button id="pause-record-btn" title="Pause Recording">Pause Recognition</button>
+            <!--<p id="recording-instructions">Press the <strong>Start Recognition</strong> button and allow access.</p>-->
 
         </div>
 
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-        <script src="script.js"></script>
+    </div>
 
-        <!-- Only used for the demos ads. Please ignore and remove. --> 
-        <script src="https://cdn.tutorialzine.com/misc/enhance/v3.js" async></script>
+    <div id="burger">
+        <div id="bread">
+            
+        </div>
+        <div id="sesame"></div>
+        <div id="meat"></div>
+        <div id="lettuce"></div>
+        <div id="cheese"></div>
+        <div id="melting-cheese"></div>
+        <div id="onion"></div>
+    </div>
 
-    </body>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <script src="script.js"></script>
+
+    <!-- SCM Music Player http://scmplayer.co -->
+    <script type="text/javascript" src="http://scmplayer.co/script.js" data-config="{'skin':'http://static.tumblr.com/d41lcii/IBGmf1pwo/white.css','volume':50,'autoplay':true,'shuffle':false,'repeat':1,'placement':'top','showplaylist':false,'playlist':[{'title':'SpongeTrap RemixPants','url':'https://youtu.be/vE2ETqUGj6Q'},{'title':'The F.U.N. Song','url':'https://youtu.be/tdOflj-esBA'},{'title':'The Trapfire Song','url':'https://youtu.be/6V5kOgSUPKI'}]}"></script>
+    <!-- SCM Music Player script end -->
+
+</body>
+
 </html>
-
-
