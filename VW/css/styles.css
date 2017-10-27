@@ -10,6 +10,7 @@
 h1 {
     color: hotpink;
 }
+
 ul {
     list-style: none;
     padding: 0;
@@ -23,6 +24,7 @@ button {
     background-color: greenyellow!important;
     color: blue;
 }
+
 button:focus {
     outline: 0;
 }
@@ -92,15 +94,16 @@ button:focus {
     .container {
         padding: 50px 25px;
     }
-
     button {
         margin-bottom: 10px;
     }
+}
 
-}   
 
 /* -- Demo ads -- */
 
 @media (max-width: 1200px) {
-    #bsaHolder{ display:none;}
+    #bsaHolder {
+        display: none;
+    }
 }

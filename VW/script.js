@@ -8,10 +8,9 @@ catch (e) {
   $('.app').hide();
 }
 
-
 var noteTextarea = $('#note-textarea');
 var instructions = $('#recording-instructions');
-var krabbyArray = ["bread", "sesame", "hamburger", "lettuce", "cheese",  "onion"];
+var krabbyArray = ["bread", "sesame", "hamburger", "lettuce", "cheese", "onion"];
 
 
 /*-----------------------------
@@ -24,24 +23,6 @@ var krabbyArray = ["bread", "sesame", "hamburger", "lettuce", "cheese",  "onion"
 recognition.continuous = true;
 recognition.interimResults = true;
 recognition.lang = "en-GB";
-
-// This block is called every time the Speech APi captures a line. 
-recognition.onresult = function (event) {
-
-  // event is a SpeechRecognitionEvent object.
-  // It holds all the lines we have captured so far. 
-  // We only need the current one.
-  var current = event.resultIndex;
-
-  // Get a transcript of what was said.
-  var transcript = event.results[current][0].transcript;
-
-  // Add the current transcript to the contents of our Note.
-  // There is a weird bug on mobile, where everything is repeated twice.
-  // There is no official solution so far so we have to handle an edge case.
-  var mobileRepeatBug = (current == 1 && transcript == event.results[0][0].transcript);
-
-};
 
 recognition.onstart = function () {
   instructions.text('Voice recognition activated. Try speaking into the microphone.');
@@ -62,11 +43,22 @@ recognition.onerror = function (event) {
       App buttons and input 
 ------------------------------*/
 
-$('#start-record-btn').on('click', function (e, transcript) {
-  recognition.onresult = function (transcript) {
+$('#start-record-btn').on('click', function (e) {
+  recognition.onresult = function () {
 
+    // event is a SpeechRecognitionEvent object.
+    // It holds all the lines we have captured so far. 
+    // We only need the current one.
     var current = event.resultIndex;
+
+    // Get a transcript of what was said.
     var transcript = event.results[current][0].transcript;
+
+    // There is a weird bug on mobile, where everything is repeated twice.
+    // There is no official solution so far so we have to handle an edge case.
+    var mobileRepeatBug = (current == 1 && transcript == event.results[0][0].transcript);
+
+    // Log the result for debugging purposes.
     console.log(transcript);
 
     if (transcript.indexOf(krabbyArray[0]) >= 0) {
@@ -87,11 +79,12 @@ $('#start-record-btn').on('click', function (e, transcript) {
 
     if (transcript.indexOf(krabbyArray[4]) >= 0) {
       document.getElementById("cheese").style.visibility = "visible";
-      document.getElementById("melting-cheese").style.visibility = "visible";
     }
 
     if (transcript.indexOf(krabbyArray[5]) >= 0) {
       document.getElementById("onion").style.visibility = "visible";
+
+      
     }
 
   }
@@ -104,5 +97,3 @@ $('#pause-record-btn').on('click', function (e) {
   recognition.stop();
   instructions.text('Voice recognition paused.');
 });
-
-
